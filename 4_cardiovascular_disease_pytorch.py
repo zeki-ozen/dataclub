@@ -25,7 +25,7 @@ import pandas as pd
 
 
 # veri seti yukleyelim
-data = pd.read_csv('cardio_train.csv', sep=';')
+data = pd.read_csv('cardio.csv', sep=';')
 data.head()
 
 
