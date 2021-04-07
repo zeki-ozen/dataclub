@@ -1,1 +1,1 @@
-# dataclub Yapay Sinir Ağı sunumunda çalıştırılacak python kodlarını ve veri setleri
+# dataclub Yapay Sinir Ağı sunumunda çalıştırılacak python kodları ve veri setleri
