@@ -19,11 +19,12 @@ Faydalanilan PyTorch Kod Kaynaklari:
 
 """
 
-
+# standart kutuphanelerimiz
 import numpy as np
 import pandas as pd
 
 
+# veri seti yukleyelim
 data = pd.read_csv('cardio_train.csv', sep=';')
 data.head()
 
@@ -38,7 +39,7 @@ data.drop('id',axis=1,inplace=True)
 data.gender = data.gender.replace(2,0)
 
 
-
+#cinsiyet degerleri kacar tane var
 data.gender.value_counts()
 
 
@@ -89,7 +90,7 @@ import torch.nn.functional as F
 
 
 
-# egitim ve test veri setlerimizi
+# egitim ve test veri setlerimizin
 # bagimli ve bagimsiz degiskenlerini torch yapisina donusturuyoruz
 X_train = torch.from_numpy(X_train.to_numpy()).float()
 y_train = torch.squeeze(torch.from_numpy(y_train.to_numpy()).float())
@@ -137,12 +138,13 @@ criterion = nn.MSELoss()
 # ogrenme fonksiyonumuz ve ogrenme orani
 optimizer = optim.Adam(net.parameters(), lr=0.001)
 
-# bu degiskenleri plot cizdirmek icin kullaniyoruz. cok gerekli degiller
+# hesaplamada kullanilacak degiskenlerimiz
 count = 0
 loss_list = []
 iteration_list = []
 accuracy_list = []
 
+# modelin egitimi yapiliyor
 for epoch in range(1000):
 
     
@@ -182,7 +184,7 @@ Test  set - loss: {round_tensor(test_loss)}, accuracy: {round_tensor(test_acc)}
     
     
 
-# performans degerelndirme icin gerekli standart kutuphaneler
+# performans degerlendirme icin gerekli standart kutuphaneler
 from sklearn.metrics import classification_report, accuracy_score
 y_pred = net(X_test)
 y_pred = y_pred.ge(.5).view(-1).cpu()
@@ -191,7 +193,7 @@ print(classification_report(y_test, y_pred))
 print(accuracy_score(y_test, y_pred))
 
 
-
+# her bir iterasyonda kayip (hata) grafigi
 import matplotlib.pyplot as plt
 # visualization loss 
 plt.plot(iteration_list,loss_list)
@@ -200,7 +202,7 @@ plt.ylabel("Loss")
 plt.title("ANN: Loss vs Number of iteration")
 plt.show()
 
-# visualization accuracy 
+# her bir iterasyonda modelin dogruluk grafigi
 plt.plot(iteration_list,accuracy_list,color = "red")
 plt.xlabel("Number of iteration")
 plt.ylabel("Accuracy")
