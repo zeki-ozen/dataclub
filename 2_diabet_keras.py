@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-İTF Yapay Zeka Klubu - Yapay Sinir Aglari Sunumu
-28.11.2020
+
+İU Data Klubu - Yapay Sinir Aglari Sunumu
+07.04.2021
 Author: Dr. Zeki Ozen
 
 Dataset kaynagi: UCI Pima-Indian Diabet Dataset @ Kaggle
