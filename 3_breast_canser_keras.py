@@ -28,9 +28,11 @@ X=data_set.data
 y=data_set.target
 
 
-# veri setini 0-1 araliginda olcekleyelim
+# egitim veri setini 0-1 araliginda olcekleyelim
+random.seed(123)
 scaler = MinMaxScaler()
 X = scaler.fit_transform(X)
+# veri setini %80 egitim %20 test olacak sekilde bolelim
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 
